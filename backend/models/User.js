@@ -18,6 +18,18 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+
+    // ✅ Add collection field
+    collection: [
+      {
+        objectID: { type: Number, required: true },  // Harvard Art Museums artwork ID
+        title: String,
+        artist: String,
+        imageUrl: String,
+        medium: String,
+        date: String,
+      },
+    ],
   },
   { timestamps: true }
 );

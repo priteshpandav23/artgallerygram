@@ -8,6 +8,7 @@ import cors from "cors";
 import artworkRoutes from "./routes/artworks.js";
 import postRoutes from "./routes/posts.js";
 import authRoutes from "./routes/auth.js";
+import collectionRoutes from "./routes/collection.js"; // ✅ New
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.get('/', (req, res) => {
 app.use("/api/artworks", artworkRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/collection", collectionRoutes); // ✅ New
 
 // Connect to MongoDB and start server
 const PORT = process.env.PORT || 5000;
