@@ -9,8 +9,8 @@ const ArtworkDetail = () => {
   const [adding, setAdding] = useState(false);
   const [message, setMessage] = useState("");
 
-  const API_KEY = "YOUR_API_KEY"; // Replace this with your actual API key
-  const userId = localStorage.getItem("userId"); // Assumes userId is stored locally after login
+  const API_KEY = "1f1c6bc2-60a5-49e9-a7b2-2a53c0194703"; 
+  const userId = localStorage.getItem("userId"); 
 
   useEffect(() => {
     const fetchArtwork = async () => {

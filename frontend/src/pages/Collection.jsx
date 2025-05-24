@@ -10,7 +10,7 @@ const Collection = () => {
     const fetchCollection = async () => {
       try {
         const res = await axios.get(`http://localhost:5000/api/collection/${userId}`);
-        setSavedArtworks(res.data);
+        setSavedArtworks(res.data.collection); // ✅ Correct extraction
       } catch (error) {
         console.error("Error fetching collection:", error);
       }
@@ -44,8 +44,8 @@ const Collection = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {savedArtworks.map((art) => (
             <div key={art.objectID} className="bg-white shadow rounded overflow-hidden">
-              {art.image ? (
-                <img src={art.image} alt={art.title} className="w-full h-64 object-cover" />
+              {art.imageUrl ? (
+                <img src={art.imageUrl} alt={art.title} className="w-full h-64 object-cover" />
               ) : (
                 <div className="w-full h-64 bg-gray-200 flex items-center justify-center">
                   No Image

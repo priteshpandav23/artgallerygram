@@ -1,5 +1,14 @@
 import mongoose from "mongoose";
 
+const artworkSchema = new mongoose.Schema({
+  objectID: { type: Number, required: true },  // Harvard Art Museums object ID
+  title: { type: String },
+  artist: { type: String },
+  image: { type: String },  // ✅ renamed from imageUrl → image
+  medium: { type: String },
+  date: { type: String },
+});
+
 const userSchema = new mongoose.Schema(
   {
     username: {
@@ -19,21 +28,11 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
 
-    // ✅ Add collection field
-    collection: [
-      {
-        objectID: { type: Number, required: true },  // Harvard Art Museums artwork ID
-        title: String,
-        artist: String,
-        imageUrl: String,
-        medium: String,
-        date: String,
-      },
-    ],
+    // ✅ Embedded artwork collection
+    collection: [artworkSchema],
   },
   { timestamps: true }
 );
 
 const User = mongoose.model("User", userSchema);
-
 export default User;

@@ -6,7 +6,7 @@ const ArtistInfo = () => {
   const { id } = useParams();
   const [artist, setArtist] = useState(null);
   const [loading, setLoading] = useState(true);
-  const API_KEY = "YOUR_API_KEY"; // Replace with your API key
+  const API_KEY = "1f1c6bc2-60a5-49e9-a7b2-2a53c0194703";
 
   useEffect(() => {
     const fetchArtist = async () => {

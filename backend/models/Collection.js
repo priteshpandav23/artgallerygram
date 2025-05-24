@@ -7,8 +7,8 @@ const collectionSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    artworkId: {
-      type: String,
+    objectID: {
+      type: Number, 
       required: true,
     },
     title: {
@@ -17,6 +17,7 @@ const collectionSchema = new mongoose.Schema(
     },
     imageUrl: {
       type: String,
+      default: "", 
     },
     artist: {
       type: String,
@@ -24,13 +25,15 @@ const collectionSchema = new mongoose.Schema(
     },
     medium: {
       type: String,
+      default: "",
     },
     date: {
       type: String,
+      default: "",
     },
   },
   {
-    timestamps: true, // Adds createdAt and updatedAt fields
+    timestamps: true,
   }
 );
 
